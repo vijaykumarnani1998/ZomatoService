@@ -1,0 +1,33 @@
+ModelMapper:Mapping DTOs to entity or vice versa
+MapStruct
+Builder
+-------------
+SpringBootConfiguration
+Spring Bean
+Spring container
+IOC
+Dependency Injection
+Constructor Injection
+Field Injection
+
+ @Query(SELECT * FROM restaurants r JOIN addresses a ON r.address_id = a.id WHERE a.city = 'Bangalore';)
+    List<RestaurantEntity> findByAddress_City(String city);
+
+ @Query (SELECT * FROM restaurants WHERE cuisine = 'Indian';) =>Default Generated
+    List<RestaurantEntity> findByCuisine(String cuisine);
+
+  @Query(SELECT * FROM restaurants WHERE open = true;)  =>Default Generated
+    List<RestaurantEntity> findByOpenTrue();
+
+    @Query("SELECT r FROM RestaurantEntity r WHERE r.open = true") =>JPAquery  (Entity + field names)
+    List<RestaurantEntity> findOpenRestaurants();
+
+    @Query(value = "SELECT * FROM restaurant WHERE open = true", nativeQuery = true)  => Native SQL  (Table + column names)
+    List<RestaurantEntity> findOpenRestaurants();
+
+    SELECT r FROM RestaurantEntity r	✅ Correct  in JPAQuery
+    SELECT * FROM RestaurantEntity	❌ Wrong in JPAQuery
+
+
+    Learn JPQL queries
+    SQL queries
