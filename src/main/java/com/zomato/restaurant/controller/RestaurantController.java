@@ -22,28 +22,28 @@ public class RestaurantController {
         RestaurantEntity restaurant = service.createRestaurant(dto);
         return new ResponseEntity<>(restaurant, HttpStatus.OK);
     }
-    @GetMapping("/Id/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<RestaurantEntity> getRestaurantById(@PathVariable Long id){
         RestaurantEntity restaurant = service.getRestaurantById(id);
         return new ResponseEntity<>(restaurant, HttpStatus.OK);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getAll")
     public ResponseEntity<List<RestaurantEntity>> getAllRestaurants(){
         List<RestaurantEntity> restaurantList = service.getAllRestaurants();
         return new ResponseEntity<>(restaurantList, HttpStatus.OK);
     }
-    @GetMapping("/city/{city}")
+    @GetMapping("/getByCity/{city}")
     public ResponseEntity<List<RestaurantEntity>> getRestaurantById(@PathVariable String city){
         List<RestaurantEntity> restaurantList = service.getRestaurantsByCity(city);
         return new ResponseEntity<>(restaurantList, HttpStatus.OK);
     }
-    @GetMapping("/cuisine/{cuisine}")
+    @GetMapping("/getByCuisine/{cuisine}")
     public ResponseEntity<List<RestaurantEntity>> getRestaurantByCuisine(@PathVariable String cuisine){
         List<RestaurantEntity> restaurantList = service.getRestaurantsByCuisine(cuisine);
         return new ResponseEntity<>(restaurantList, HttpStatus.OK);
     }
-    @GetMapping("/open")
+    @GetMapping("/getOpen")
     public ResponseEntity<List<RestaurantEntity>> getOpenRestaurats(){
         List<RestaurantEntity> restaurantList = service.getOpenRestaurants();
         return new ResponseEntity<>(restaurantList, HttpStatus.OK);

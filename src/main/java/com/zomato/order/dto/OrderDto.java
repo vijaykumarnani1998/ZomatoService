@@ -1,6 +1,8 @@
 package com.zomato.order.dto;
 
 import com.zomato.enums.OrderStatus;
+import com.zomato.restaurant.entity.RestaurantEntity;
+import com.zomato.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class OrderDto {
 
 
     private  Long orderId;

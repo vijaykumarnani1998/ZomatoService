@@ -17,30 +17,30 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/createUser")
+    @PostMapping("/create")
     public ResponseEntity<UserEntity> createOrder(@RequestBody UserDto userDto){
         UserEntity user1 = userService.createUser(userDto);
         return  new ResponseEntity<>(user1, HttpStatus.OK);
     }
 
-    @GetMapping("/getUserById/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<UserEntity> getUserById(@PathVariable Long id){
         UserEntity user1 = userService.getUserById(id);
         return  new ResponseEntity<>(user1, HttpStatus.OK);
     }
-    @GetMapping("/getAllUsers")
+    @GetMapping("/getAll")
     public ResponseEntity<List<UserEntity>> getAllUsers(){
        List<UserEntity>  list = userService.getAllUsers();
         return  new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUserById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id){
         String s = userService.deleteUserById(id);
         return  new ResponseEntity<>(s, HttpStatus.OK);
     }
 
-    @PutMapping("/updateUser/{userId}")
+    @PutMapping("/update/{userId}")
     public ResponseEntity<UserEntity> updateOrder(@PathVariable Long userId,@RequestBody UserDto userDto){
         UserEntity user1 = userService.updateUserById(userId,userDto);
         return  new ResponseEntity<>(user1, HttpStatus.OK);
